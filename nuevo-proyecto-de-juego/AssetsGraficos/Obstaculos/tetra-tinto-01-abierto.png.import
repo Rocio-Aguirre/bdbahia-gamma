@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnnvwm7n8gw0"
-valid=false
+uid="uid://mpatwcllgkng"
+path="res://.godot/imported/tetra-tinto-01-abierto.png-4d2c697b757ace67c0dc084b130cb6e8.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://AssetsGraficos/Pantallas/MainMenu.png"
+source_file="res://AssetsGraficos/Obstaculos/tetra-tinto-01-abierto.png"
+dest_files=["res://.godot/imported/tetra-tinto-01-abierto.png-4d2c697b757ace67c0dc084b130cb6e8.ctex"]
 
 [params]
 

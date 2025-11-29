@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://kni1jaxbgxbf"]
+
+[ext_resource type="Script" uid="uid://yd4wa753ials" path="res://background_entity.gd" id="1_gwdc5"]
+[ext_resource type="Texture2D" uid="uid://c0hxl18iforjc" path="res://AssetsGraficos/Obstaculos/Hincha 2.png" id="2_0vo27"]
+[ext_resource type="Texture2D" uid="uid://cvew8wciav8da" path="res://AssetsGraficos/Obstaculos/damajuana-tinto.png" id="3_nvocx"]
+[ext_resource type="Texture2D" uid="uid://cmm0cgl0gtgle" path="res://AssetsGraficos/Obstaculos/Hincha 3.png" id="3_q03fy"]
+[ext_resource type="Texture2D" uid="uid://cj35cnin3fup8" path="res://AssetsGraficos/Obstaculos/Hincha 4.png" id="4_8sakw"]
+[ext_resource type="Texture2D" uid="uid://caj6kb54gxv67" path="res://AssetsGraficos/Obstaculos/Hincha Boca.png" id="5_34joi"]
+[ext_resource type="Texture2D" uid="uid://b1fjfno6edeq4" path="res://AssetsGraficos/Obstaculos/ferne.png" id="5_p3ala"]
+[ext_resource type="Texture2D" uid="uid://bn6a2dfsqyynr" path="res://AssetsGraficos/Obstaculos/cerveza-01.png" id="7_82g3a"]
+[ext_resource type="Texture2D" uid="uid://mpatwcllgkng" path="res://AssetsGraficos/Obstaculos/tetra-tinto-01-abierto.png" id="9_ttkpx"]
+
+[node name="BackgroundEntity" type="Node2D"]
+script = ExtResource("1_gwdc5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="SpriteCollection" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="SpriteCollection"]
+visible = false
+scale = Vector2(0.12817383, 0.1269531)
+texture = ExtResource("2_0vo27")
+
+[node name="DamajuanaTinto" type="Sprite2D" parent="SpriteCollection/1"]
+position = Vector2(249.66095, 315.077)
+scale = Vector2(7.8019047, 7.876925)
+texture = ExtResource("3_nvocx")
+
+[node name="2" type="Sprite2D" parent="SpriteCollection"]
+visible = false
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(0.109375, 0.1171875)
+texture = ExtResource("3_q03fy")
+
+[node name="Ferne" type="Sprite2D" parent="SpriteCollection/2"]
+position = Vector2(-292.5713, 273.06668)
+scale = Vector2(9.142858, 8.533334)
+texture = ExtResource("5_p3ala")
+
+[node name="3" type="Sprite2D" parent="SpriteCollection"]
+visible = false
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(0.109375, 0.1171875)
+texture = ExtResource("4_8sakw")
+
+[node name="Cerveza01" type="Sprite2D" parent="SpriteCollection/3"]
+position = Vector2(146.28586, 273.06668)
+scale = Vector2(9.142858, 8.533334)
+texture = ExtResource("7_82g3a")
+
+[node name="4" type="Sprite2D" parent="SpriteCollection"]
+visible = false
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(0.109375, 0.1171875)
+texture = ExtResource("5_34joi")
+
+[node name="TetraTinto01Abierto" type="Sprite2D" parent="SpriteCollection/4"]
+position = Vector2(146.28586, 204.80002)
+scale = Vector2(9.142858, 8.533334)
+texture = ExtResource("9_ttkpx")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
