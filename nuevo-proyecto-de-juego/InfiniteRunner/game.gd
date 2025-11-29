@@ -11,18 +11,19 @@ func _ready() -> void:
 	
 
 func winState():
-	get_tree().change_scene_to_file("res://win_state_screen.tscn")
+	get_tree().change_scene_to_file("res://InfiniteRunner/win_state_screen.tscn")
 
 
 func checkFailState():
 	$UI.update_lives()
 	if GlobalDataRunner.vidas <= 0:
-		get_tree().call_deferred("change_scene_to_file","res://game_over_screen.tscn")
+		get_tree().call_deferred("change_scene_to_file","res://InfiniteRunner/game_over_screen.tscn")
 
 
 
 func _on_victory_timer_timeout() -> void:
 	var victoryZoneInstance = victoryZoneScene.instantiate()
-	victoryZoneInstance.global_position = $SpawnManager.global_position
+	victoryZoneInstance.global_position = global_position
+	victoryZoneInstance.global_position.y -=700
 	victoryZoneInstance.playerEntered.connect(winState)
-	add_child(victoryZoneInstance)
+	$Background.add_sibling(victoryZoneInstance)

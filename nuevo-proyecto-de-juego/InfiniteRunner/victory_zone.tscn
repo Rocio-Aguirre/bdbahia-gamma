@@ -1,42 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://conrbq51bavyd"]
+[gd_scene load_steps=8 format=3 uid="uid://conrbq51bavyd"]
 
 [ext_resource type="Texture2D" uid="uid://caj6kb54gxv67" path="res://AssetsGraficos/Obstaculos/Hincha Boca.png" id="1_l2p5h"]
 [ext_resource type="Script" uid="uid://curpye0yv5ja3" path="res://InfiniteRunner/victory_zone.gd" id="1_t5xfc"]
+[ext_resource type="Texture2D" uid="uid://c8jl3oxlps3vo" path="res://AssetsGraficos/End of road.png" id="2_o4wj1"]
+[ext_resource type="Texture2D" uid="uid://dkk7jsho6qccn" path="res://AssetsGraficos/Pantallas/Pantalla de Inicio.png" id="3_45vq8"]
+[ext_resource type="Texture2D" uid="uid://cj35cnin3fup8" path="res://AssetsGraficos/Obstaculos/Hincha 4.png" id="5_bxllm"]
+[ext_resource type="Texture2D" uid="uid://cmm0cgl0gtgle" path="res://AssetsGraficos/Obstaculos/Hincha 3.png" id="6_ofawd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xfc"]
-size = Vector2(756, 314)
+size = Vector2(1042, 314)
 
 [node name="VictoryZone" type="Area2D"]
 script = ExtResource("1_t5xfc")
 
+[node name="EndOfRoad" type="Sprite2D" parent="."]
+position = Vector2(619.99994, 472.25342)
+scale = Vector2(0.8747253, 0.80149084)
+texture = ExtResource("2_o4wj1")
+region_enabled = true
+region_rect = Rect2(0, 0, 1820, 340)
+
+[node name="PantallaDeInicio" type="Sprite2D" parent="."]
+position = Vector2(584, -424)
+scale = Vector2(1.2452055, 1.1326531)
+texture = ExtResource("3_45vq8")
+region_enabled = true
+region_rect = Rect2(419, 23, 1095, 784)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(134, 22)
+position = Vector2(600, 168)
 shape = SubResource("RectangleShape2D_t5xfc")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="HinchaBoca" type="Sprite2D" parent="Node2D"]
-position = Vector2(-195.75002, 53.499954)
+position = Vector2(1024, 0)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca2" type="Sprite2D" parent="Node2D"]
-position = Vector2(-136.00002, -41)
+position = Vector2(763.75, 53.49994)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca3" type="Sprite2D" parent="Node2D"]
-position = Vector2(-76, 76)
+position = Vector2(96, 416)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca4" type="Sprite2D" parent="Node2D"]
-position = Vector2(0, -47)
+position = Vector2(136, 264)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca5" type="Sprite2D" parent="Node2D"]
-position = Vector2(60, 107)
+position = Vector2(64.00001, 192)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
@@ -46,48 +64,68 @@ scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca7" type="Sprite2D" parent="Node2D"]
-position = Vector2(180, 76)
+position = Vector2(192, 182)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca8" type="Sprite2D" parent="Node2D"]
-position = Vector2(240, -30)
+position = Vector2(960, 256)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca11" type="Sprite2D" parent="Node2D"]
-position = Vector2(240, -30)
+position = Vector2(635.75, 45.49994)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca9" type="Sprite2D" parent="Node2D"]
-position = Vector2(120, -94)
+position = Vector2(48.000015, 88)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca10" type="Sprite2D" parent="Node2D"]
-position = Vector2(120, -94)
+position = Vector2(1072.0001, 416)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca12" type="Sprite2D" parent="Node2D"]
-position = Vector2(359.75, 107.499954)
+position = Vector2(240.00003, 128)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca13" type="Sprite2D" parent="Node2D"]
-position = Vector2(419.75, -93.500046)
+position = Vector2(976, 96)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca14" type="Sprite2D" parent="Node2D"]
-position = Vector2(299.75, 154.49995)
+position = Vector2(1096, 129)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca15" type="Sprite2D" parent="Node2D"]
-position = Vector2(359.75, -46.500046)
+position = Vector2(1056, 240)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
+
+[node name="Hincha4" type="Sprite2D" parent="Node2D"]
+position = Vector2(288.00003, 0)
+scale = Vector2(0.1328125, 0.14062494)
+texture = ExtResource("5_bxllm")
+
+[node name="Hincha5" type="Sprite2D" parent="Node2D"]
+position = Vector2(608, -23.999998)
+scale = Vector2(0.1328125, 0.14062494)
+texture = ExtResource("5_bxllm")
+
+[node name="Hincha6" type="Sprite2D" parent="Node2D"]
+position = Vector2(488, 34.999992)
+scale = Vector2(0.1328125, 0.14062494)
+texture = ExtResource("5_bxllm")
+
+[node name="Hincha3" type="Sprite2D" parent="Node2D"]
+position = Vector2(408, -32)
+scale = Vector2(0.16015622, 0.1601561)
+texture = ExtResource("6_ofawd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

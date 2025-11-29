@@ -27,10 +27,12 @@ func applyDebuff():
 func _physics_process(delta: float) -> void:
 	if controlled:
 		var direction = check_input()
-		rotation_degrees= rotation_max*direction
+		var target_rotation = rotation_max * direction
+		rotation_degrees = lerp(rotation_degrees, target_rotation, rotation_rate * delta)
 		velocity = Vector2.RIGHT*horizontal_move*direction
 	else: 
 		velocity = Vector2.RIGHT*horizontal_move*randf_range(-1.0,1.0)
+		rotation_degrees = lerp(rotation_degrees, 0.0, rotation_rate * delta)
 	
 	move_and_slide()
 

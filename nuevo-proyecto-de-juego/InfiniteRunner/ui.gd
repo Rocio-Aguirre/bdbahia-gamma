@@ -1,7 +1,12 @@
 extends CanvasLayer
 
-@export var min_angle_deg = -90.0
-@export var max_angle_deg = 90.0
+@export var min_angle_deg: float
+@export var max_angle_deg:float
+
+func _ready() -> void:
+	$ColorRect/TimerBar.max_value = $"../VictoryTimer".wait_time
+	min_angle_deg = -90.0
+	max_angle_deg = 90
 
 
 func _process(delta: float) -> void:
@@ -20,7 +25,5 @@ func update_ui(delta):
 	rotacion_obj = clamp(rotacion_obj, min_angle_deg, max_angle_deg)
 	$ColorRect/SpeedMeter/Indicator.rotation_degrees = lerp($ColorRect/SpeedMeter/Indicator.rotation_degrees, rotacion_obj,  delta*5.0)
 	# Calculo Progreso
-	var porcentajeProgreso = -($"../VictoryTimer".time_left-$"../VictoryTimer".wait_time)
+	$ColorRect/TimerBar.value = $"../VictoryTimer".wait_time -  $"../VictoryTimer".time_left
 	
-	print(porcentajeProgreso)
-	$ColorRect/TimerBar.value = porcentajeProgreso

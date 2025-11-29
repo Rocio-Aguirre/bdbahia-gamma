@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=19 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
 [ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://InfiniteRunner/bache.tscn" id="6_dqqyf"]
 [ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
+[ext_resource type="PackedScene" uid="uid://5pjg1nq0lyrd" path="res://InfiniteRunner/warning_alert.tscn" id="8_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d2k8n5u1kcfph" path="res://AssetsGraficos/Decorations/Blue heart.png" id="10_0vmfc"]
 [ext_resource type="Texture2D" uid="uid://b0ybrr8bqb2f5" path="res://AssetsGraficos/Decorations/White heart.png" id="11_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
@@ -18,7 +19,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_il46p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 202, -2, 0, 0, 0, 0, 963, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 294, 2, 0, 0, 0, 0, 885, 4)
 }
 point_count = 2
 
@@ -45,18 +46,17 @@ script = ExtResource("1_il46p")
 victoryZoneScene = ExtResource("2_wvhkt")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(589.5, 330.5)
-scale = Vector2(1.0335938, 1.0125)
+position = Vector2(575.00006, 323)
+scale = Vector2(0.896875, 0.8944444)
 texture = ExtResource("3_nrq3g")
-metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(593, 448)
+position = Vector2(573, 449)
 
 [node name="Limites" type="Node2D" parent="."]
 
 [node name="LimIzq" type="StaticBody2D" parent="Limites"]
-position = Vector2(201, 0)
+position = Vector2(257, 101)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/LimIzq"]
@@ -64,7 +64,7 @@ shape = SubResource("WorldBoundaryShape2D_e2o6t")
 metadata/_edit_lock_ = true
 
 [node name="LimDer" type="StaticBody2D" parent="Limites"]
-position = Vector2(965, 0)
+position = Vector2(897, 103)
 rotation = 4.71239
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/LimDer"]
@@ -72,20 +72,21 @@ shape = SubResource("WorldBoundaryShape2D_e2o6t")
 metadata/_edit_lock_ = true
 
 [node name="SpawnManager" type="Node2D" parent="."]
-position = Vector2(0, -40)
+position = Vector2(-11, 7)
 script = ExtResource("3_ap7sh")
 obstacleScenesArray = Array[PackedScene]([ExtResource("4_om5vi"), ExtResource("6_dqqyf")])
+warningScene = ExtResource("8_b8mj7")
 
 [node name="SpawnTimer" type="Timer" parent="SpawnManager"]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="SpawnManager"]
 curve = SubResource("Curve2D_il46p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnManager/Path2D"]
-position = Vector2(202, -2)
-rotation = 0.0039421613
+position = Vector2(294, 2)
+rotation = 0.0033840819
 
 [node name="DifficultyManager" type="Node2D" parent="."]
 script = ExtResource("5_x6vg1")
@@ -98,10 +99,10 @@ autostart = true
 script = ExtResource("6_yhjm0")
 
 [node name="ColorRect" type="Panel" parent="UI"]
-offset_left = 256.0
-offset_top = 575.0
-offset_right = 948.0
-offset_bottom = 640.0
+offset_left = 230.0
+offset_top = 569.0
+offset_right = 922.0
+offset_bottom = 634.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ra7kr")
 
 [node name="TimerBar" type="ProgressBar" parent="UI/ColorRect"]
@@ -111,6 +112,7 @@ offset_top = 17.0
 offset_right = 452.0
 offset_bottom = 44.0
 theme_override_styles/background = SubResource("StyleBoxFlat_sofm7")
+rounded = true
 
 [node name="HeartContainer" type="HBoxContainer" parent="UI/ColorRect"]
 layout_mode = 0
@@ -147,12 +149,11 @@ scale = Vector2(0.26171875, 0.31249988)
 texture = ExtResource("13_860g3")
 
 [node name="VictoryTimer" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 30.0
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(571, 318)
-zoom = Vector2(0.89, 0.89)
 
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyManager/DifficultyUpTimer" to="DifficultyManager" method="_on_difficulty_up_timer_timeout"]
