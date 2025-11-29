@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var spawn_timer: Timer = $SpawnTimer
-@export var obstacleScene: PackedScene
+@export var obstacleScenesArray: Array[PackedScene]
 @export var spawn_time_rate = 5.0
 @export var min_spawn_rate = 2.5
 
@@ -9,7 +9,7 @@ extends Node2D
 
 func _on_spawn_timer_timeout() -> void:
 	print("test")
-	var instancia_obstaculo = obstacleScene.instantiate()
+	var instancia_obstaculo = obstacleScenesArray.pick_random().instantiate()
 	# Conseguir pos random de pathfollow
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $Path2D/PathFollow2D

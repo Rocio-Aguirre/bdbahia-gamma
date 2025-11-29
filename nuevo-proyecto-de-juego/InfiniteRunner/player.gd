@@ -1,12 +1,14 @@
 extends CharacterBody2D
 signal playerDamage
-
-
 @export var horizontal_move = 20.0
+@export var rotation_max = 30.0
+@export var rotation_rate= 5.0
+
+@onready var controlled = true
 
 func check_input():
-	var array = Input.get_axis("ui_left","ui_right")
-	return array
+	var dir := Input.get_axis("ui_left","ui_right")
+	return dir
 
 func apply_damage():
 	GlobalDataRunner.vidas -= 1
@@ -16,10 +18,22 @@ func apply_damage():
 	$AnimationPlayer.play("playerHit")
 	await $AnimationPlayer.animation_finished
 	$CollisionShape2D.set_deferred("disabled",false)
-	
+
+func applyDebuff():
+	$UncontrolledTimer.start()
+	controlled = false
 	
 
 func _physics_process(delta: float) -> void:
-	var direction = check_input()
-	velocity = Vector2.RIGHT*horizontal_move*direction
+	if controlled:
+		var direction = check_input()
+		rotation_degrees= rotation_max*direction
+		velocity = Vector2.RIGHT*horizontal_move*direction
+	else: 
+		velocity = Vector2.RIGHT*horizontal_move*randf_range(-1.0,1.0)
+	
 	move_and_slide()
+
+
+func _on_uncontrolled_timer_timeout() -> void:
+	controlled = true
