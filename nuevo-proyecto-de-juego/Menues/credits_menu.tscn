@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4gvs8u60bpok"]
+[gd_scene load_steps=7 format=3 uid="uid://c4gvs8u60bpok"]
 
-[ext_resource type="Texture2D" uid="uid://wnnvwm7n8gw0" path="res://AssetsGraficos/Pantallas/MainMenu.png" id="1_oxlfw"]
+[ext_resource type="Script" uid="uid://c161j84ahrm8r" path="res://Menues/credits_menu.gd" id="1_wli2x"]
+[ext_resource type="Texture2D" uid="uid://dkk7jsho6qccn" path="res://AssetsGraficos/Pantallas/Pantalla de Inicio.png" id="2_kl5sn"]
+[ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="3_jb5aw"]
+[ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="4_wqoqo"]
+[ext_resource type="AudioStream" uid="uid://dve268i7h2gf2" path="res://Music/menu jam2025.mp3" id="5_1depg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxiif"]
+bg_color = Color(0.33921838, 0.33921838, 0.33921838, 0.69411767)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -9,8 +24,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wli2x")
 
-[node name="MainMenu" type="Sprite2D" parent="."]
-position = Vector2(576.00006, 324.00006)
-scale = Vector2(0.6000001, 0.6)
-texture = ExtResource("1_oxlfw")
+[node name="PantallaDeInicio" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("2_kl5sn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_left = 256.0
+offset_top = 52.0
+offset_right = 1071.68
+offset_bottom = 569.824
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxiif")
+
+[node name="BackButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 473.0
+offset_right = 524.0
+offset_bottom = 543.0
+texture_normal = ExtResource("3_jb5aw")
+texture_pressed = ExtResource("4_wqoqo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1depg")
+autoplay = true
+
+[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
