@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 
 func winState():
-	get_tree().change_scene_to_file("res://InfiniteRunner/win_state_screen.tscn")
+	get_tree().change_scene_to_file("res://Gomera/main.tscn")
 
 
 func checkFailState():

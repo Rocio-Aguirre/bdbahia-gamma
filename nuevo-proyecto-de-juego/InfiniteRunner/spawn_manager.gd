@@ -10,7 +10,6 @@ extends Node2D
 
 
 func _on_spawn_timer_timeout() -> void:
-	print("test")
 	var instancia_obstaculo = obstacleScenesArray.pick_random().instantiate()
 	# Conseguir pos random de pathfollow
 	# Choose a random location on Path2D.
