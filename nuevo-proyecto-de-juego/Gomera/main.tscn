@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2pu2eejj50i8"]
+
+[ext_resource type="Script" uid="uid://ch0eynqfq0s8t" path="res://Gomera/main.gd" id="1_h5qvj"]
+[ext_resource type="Script" uid="uid://bmmhq1lklw7ou" path="res://Gomera/projectile.gd" id="2_3y4nc"]
+[ext_resource type="PackedScene" uid="uid://rha3trihj60p" path="res://Gomera/confetti.tscn" id="3_h2yge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12345"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(1152, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall1"]
+size = Vector2(64, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform1"]
+size = Vector2(160, 32)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_h5qvj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="SlingshotPosition" type="Marker2D" parent="."]
+position = Vector2(134, 400)
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.545098, 0.270588, 0.0745098, 1)
+
+[node name="TrajectoryLine" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(1, 1, 1, 0.3)
+
+[node name="Projectile" type="RigidBody2D" parent="."]
+position = Vector2(134, 400)
+script = ExtResource("2_3y4nc")
+
+[node name="ColorRect" type="ColorRect" parent="Projectile"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.8, 0.1, 0.1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile"]
+shape = SubResource("CircleShape2D_12345")
+
+[node name="Confetti" parent="Projectile" instance=ExtResource("3_h2yge")]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(576, 600)
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -576.0
+offset_top = -50.0
+offset_right = 576.0
+offset_bottom = 50.0
+color = Color(0.298039, 0.686275, 0.313726, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(900, 450)
+
+[node name="ColorRect" type="ColorRect" parent="Wall1"]
+offset_left = -32.0
+offset_top = -100.0
+offset_right = 32.0
+offset_bottom = 100.0
+color = Color(0.6, 0.4, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+shape = SubResource("RectangleShape2D_wall1")
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(806, 445)
+
+[node name="ColorRect" type="ColorRect" parent="Platform1"]
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+color = Color(0.4, 0.3, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectangleShape2D_platform1")

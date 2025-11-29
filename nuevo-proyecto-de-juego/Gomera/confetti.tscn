@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rha3trihj60p"]
+
+[ext_resource type="Script" uid="uid://ddsftgl3b3qw8" path="res://confetti.gd" id="1_0lbn0"]
+
+[node name="Confetti" type="Node2D"]
+
+[node name="Confetti" type="CPUParticles2D" parent="."]
+script = ExtResource("1_0lbn0")
