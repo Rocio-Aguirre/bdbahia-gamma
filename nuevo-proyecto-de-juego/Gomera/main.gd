@@ -5,11 +5,13 @@ extends Node2D
 @onready var slingshot_position = $SlingshotPosition
 @onready var line = $Line2D
 @onready var trajectory_line = $TrajectoryLine
+@onready var victory_screen = $VictoryScreen
+@onready var defeat_screen = $DefeatScreen
 
 # Variables del juego
 var dragging = false
-var launch_power = 1350
-var max_drag_distance = 150
+var launch_power = 2500
+var max_drag_distance = 125
 var initial_projectile_position
 
 func _ready():
@@ -80,3 +82,25 @@ func launch_projectile():
 
 func reset_projectile():
 	projectile.reset_position(initial_projectile_position)
+
+
+func show_victory():
+	victory_screen.visible = true
+	# Pausar el juego
+	get_tree().paused = true
+
+func show_defeat():
+	defeat_screen.visible = true
+	# Pausar el juego
+	get_tree().paused = true
+
+func restart_game():
+	# Ocultar pantallas
+	victory_screen.visible = false
+	defeat_screen.visible = false
+	
+	# Despausar
+	get_tree().paused = false
+	
+	# Resetear proyectil
+	reset_projectile()

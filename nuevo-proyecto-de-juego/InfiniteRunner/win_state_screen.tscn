@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://0bymcs4liuaq"]
+[gd_scene load_steps=0 format=3 uid="uid://0bymcs4liuaq"]
 
 [node name="WinStateScreen" type="Node2D"]
 
