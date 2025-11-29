@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=18 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
 [ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://InfiniteRunner/bache.tscn" id="6_dqqyf"]
 [ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
+[ext_resource type="Texture2D" uid="uid://d2k8n5u1kcfph" path="res://AssetsGraficos/Decorations/Blue heart.png" id="10_0vmfc"]
+[ext_resource type="Texture2D" uid="uid://b0ybrr8bqb2f5" path="res://AssetsGraficos/Decorations/White heart.png" id="11_b8mj7"]
+[ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
+[ext_resource type="Texture2D" uid="uid://dugv237y2et1q" path="res://AssetsGraficos/Decorations/Indicator.png" id="13_860g3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -18,6 +22,24 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra7kr"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 0.63529414)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sofm7"]
+bg_color = Color(0.46138048, 0.61905384, 0.99058205, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_il46p")
 victoryZoneScene = ExtResource("2_wvhkt")
@@ -26,9 +48,10 @@ victoryZoneScene = ExtResource("2_wvhkt")
 position = Vector2(589.5, 330.5)
 scale = Vector2(1.0335938, 1.0125)
 texture = ExtResource("3_nrq3g")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(589, 532)
+position = Vector2(593, 448)
 
 [node name="Limites" type="Node2D" parent="."]
 
@@ -49,6 +72,7 @@ shape = SubResource("WorldBoundaryShape2D_e2o6t")
 metadata/_edit_lock_ = true
 
 [node name="SpawnManager" type="Node2D" parent="."]
+position = Vector2(0, -40)
 script = ExtResource("3_ap7sh")
 obstacleScenesArray = Array[PackedScene]([ExtResource("4_om5vi"), ExtResource("6_dqqyf")])
 
@@ -73,34 +97,54 @@ autostart = true
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("6_yhjm0")
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-offset_right = 1152.0
-offset_bottom = 40.0
-metadata/_edit_lock_ = true
+[node name="ColorRect" type="Panel" parent="UI"]
+offset_left = 256.0
+offset_top = 575.0
+offset_right = 948.0
+offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra7kr")
 
-[node name="SpeedLabel" type="Label" parent="UI/ColorRect"]
+[node name="TimerBar" type="ProgressBar" parent="UI/ColorRect"]
 layout_mode = 0
-offset_left = 1093.0
-offset_top = 12.0
-offset_right = 1144.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 221.0
+offset_top = 17.0
+offset_right = 452.0
+offset_bottom = 44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sofm7")
 
-[node name="VidasLabel" type="Label" parent="UI/ColorRect"]
+[node name="HeartContainer" type="HBoxContainer" parent="UI/ColorRect"]
 layout_mode = 0
-offset_left = 81.0
-offset_top = 12.0
-offset_right = 132.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 149.0
+offset_bottom = 51.0
 
-[node name="TimerLabel" type="Label" parent="UI/ColorRect"]
-layout_mode = 0
-offset_left = 571.0
-offset_top = 1.0
-offset_right = 611.0
-offset_bottom = 24.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="UI/ColorRect/HeartContainer"]
+layout_mode = 2
+texture = ExtResource("10_0vmfc")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ColorRect/HeartContainer"]
+layout_mode = 2
+texture = ExtResource("11_b8mj7")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ColorRect/HeartContainer"]
+layout_mode = 2
+texture = ExtResource("10_0vmfc")
+expand_mode = 2
+
+[node name="SpeedMeter" type="Node2D" parent="UI/ColorRect"]
+
+[node name="Speedometer" type="Sprite2D" parent="UI/ColorRect/SpeedMeter"]
+position = Vector2(614, 38.000004)
+scale = Vector2(0.39453122, 0.4238281)
+texture = ExtResource("12_mrh2u")
+
+[node name="Indicator" type="Sprite2D" parent="UI/ColorRect/SpeedMeter"]
+position = Vector2(614.99994, 42.000015)
+scale = Vector2(0.26171875, 0.31249988)
+texture = ExtResource("13_860g3")
 
 [node name="VictoryTimer" type="Timer" parent="."]
 wait_time = 40.0
@@ -108,6 +152,7 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(571, 318)
+zoom = Vector2(0.89, 0.89)
 
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyManager/DifficultyUpTimer" to="DifficultyManager" method="_on_difficulty_up_timer_timeout"]

@@ -3,8 +3,10 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @export var victoryZoneScene: PackedScene
 
+
+
+
 func _ready() -> void:
-	$UI.update_ui()
 	$Player.playerDamage.connect(checkFailState)
 	
 
@@ -13,6 +15,7 @@ func winState():
 
 
 func checkFailState():
+	$UI.update_lives()
 	if GlobalDataRunner.vidas <= 0:
 		get_tree().call_deferred("change_scene_to_file","res://game_over_screen.tscn")
 
