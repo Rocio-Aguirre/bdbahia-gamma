@@ -17,4 +17,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalDataRunner="*res://global_data.gd"
+GlobalDataRunner="*res://InfiniteRunner/global_data.gd"

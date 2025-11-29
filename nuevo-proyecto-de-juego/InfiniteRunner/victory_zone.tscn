@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://conrbq51bavyd"]
 
 [ext_resource type="Texture2D" uid="uid://caj6kb54gxv67" path="res://AssetsGraficos/Obstaculos/Hincha Boca.png" id="1_l2p5h"]
-[ext_resource type="Script" uid="uid://curpye0yv5ja3" path="res://victory_zone.gd" id="1_t5xfc"]
+[ext_resource type="Script" uid="uid://curpye0yv5ja3" path="res://InfiniteRunner/victory_zone.gd" id="1_t5xfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xfc"]
 size = Vector2(756, 314)

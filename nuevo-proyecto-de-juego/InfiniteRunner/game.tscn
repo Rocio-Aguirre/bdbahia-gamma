@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
-[ext_resource type="PackedScene" uid="uid://conrbq51bavyd" path="res://victory_zone.tscn" id="2_wvhkt"]
+[ext_resource type="PackedScene" uid="uid://conrbq51bavyd" path="res://InfiniteRunner/victory_zone.tscn" id="2_wvhkt"]
 [ext_resource type="Script" uid="uid://c737iytpo1tcy" path="res://InfiniteRunner/spawn_manager.gd" id="3_ap7sh"]
 [ext_resource type="Texture2D" uid="uid://cucvbxut5oy0h" path="res://InfiniteRunner/background.jpg" id="3_nrq3g"]
 [ext_resource type="PackedScene" uid="uid://sfd0wb0psukv" path="res://InfiniteRunner/obstaculo.tscn" id="4_om5vi"]
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
-[ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://bache.tscn" id="6_dqqyf"]
+[ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://InfiniteRunner/bache.tscn" id="6_dqqyf"]
 [ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
@@ -28,7 +28,7 @@ scale = Vector2(1.0335938, 1.0125)
 texture = ExtResource("3_nrq3g")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(526, 527)
+position = Vector2(589, 532)
 
 [node name="Limites" type="Node2D" parent="."]
 
@@ -76,6 +76,7 @@ script = ExtResource("6_yhjm0")
 [node name="ColorRect" type="ColorRect" parent="UI"]
 offset_right = 1152.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
 
 [node name="SpeedLabel" type="Label" parent="UI/ColorRect"]
 layout_mode = 0

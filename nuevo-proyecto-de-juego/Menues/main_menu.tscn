@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://c26jk32t87qd4"]
+
+[ext_resource type="Texture2D" uid="uid://wnnvwm7n8gw0" path="res://AssetsGraficos/Pantallas/MainMenu.png" id="1_l1hit"]
+[ext_resource type="Script" uid="uid://4itf4of6h15b" path="res://Menues/main_menu.gd" id="1_uau8e"]
+[ext_resource type="AudioStream" uid="uid://dve268i7h2gf2" path="res://Music/menu jam2025.mp3" id="2_uau8e"]
+[ext_resource type="Texture2D" uid="uid://6kh5atsult1n" path="res://AssetsGraficos/Buttons/Jugar inactivo x256.png" id="3_h1ort"]
+[ext_resource type="Texture2D" uid="uid://b8lo6flvsugst" path="res://AssetsGraficos/Buttons/Jugar activo x256.png" id="4_p3hv5"]
+[ext_resource type="Texture2D" uid="uid://bwe7pxtofoqk3" path="res://AssetsGraficos/Buttons/Gamma inactivo x256.png" id="5_vtxak"]
+[ext_resource type="Texture2D" uid="uid://ddcgo606q1it" path="res://AssetsGraficos/Buttons/Gamma activo x256.png" id="6_3qcgf"]
+[ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="7_x02qk"]
+[ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="8_ujn10"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uau8e")
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(578.5, 327.5)
+scale = Vector2(0.5984375, 0.5935185)
+texture = ExtResource("1_l1hit")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uau8e")
+autoplay = true
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 182.0
+offset_right = 1093.0
+offset_bottom = 254.0
+texture_normal = ExtResource("3_h1ort")
+texture_pressed = ExtResource("4_p3hv5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 257.0
+offset_right = 1092.0
+offset_bottom = 332.0
+texture_normal = ExtResource("5_vtxak")
+texture_pressed = ExtResource("6_3qcgf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 331.0
+offset_right = 1092.0
+offset_bottom = 410.0
+texture_normal = ExtResource("7_x02qk")
+texture_pressed = ExtResource("8_ujn10")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
