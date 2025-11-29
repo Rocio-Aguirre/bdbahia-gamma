@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpsaxvvwqv80r"]
+[gd_scene load_steps=7 format=3 uid="uid://cpsaxvvwqv80r"]
 
 [ext_resource type="Script" uid="uid://dt7hi11wti1t5" path="res://InfiniteRunner/player.gd" id="1_ksvj7"]
 [ext_resource type="Texture2D" uid="uid://dqrw2aeobmrjv" path="res://AssetsGraficos/playerCar.png" id="2_fcnsu"]
@@ -6,6 +6,43 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 41.0
 height = 184.0
+
+[sub_resource type="Animation" id="Animation_ksvj7"]
+resource_name = "playerHit"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.26666668, 0.57, 0.8666667, 1.2333333, 1.5, 1.9333333, 2.1999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_fcnsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7new"]
+_data = {
+&"RESET": SubResource("Animation_fcnsu"),
+&"playerHit": SubResource("Animation_ksvj7")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ksvj7")
@@ -18,3 +55,8 @@ shape = SubResource("CapsuleShape2D_onrkg")
 [node name="PlayerCar" type="Sprite2D" parent="."]
 scale = Vector2(0.160156, 0.131319)
 texture = ExtResource("2_fcnsu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i7new")
+}

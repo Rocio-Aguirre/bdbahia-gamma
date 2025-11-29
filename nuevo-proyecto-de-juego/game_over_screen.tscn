@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://coujn1b7aipi5"]
 
 [node name="GameOverScreen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 462.0
+offset_top = 157.0
+offset_right = 502.0
+offset_bottom = 180.0
+text = "F"

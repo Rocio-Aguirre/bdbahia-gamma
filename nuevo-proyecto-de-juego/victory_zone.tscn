@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://conrbq51bavyd"]
+
+[ext_resource type="Texture2D" uid="uid://caj6kb54gxv67" path="res://AssetsGraficos/Obstaculos/Hincha Boca.png" id="1_l2p5h"]
+[ext_resource type="Script" uid="uid://curpye0yv5ja3" path="res://victory_zone.gd" id="1_t5xfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xfc"]
+size = Vector2(756, 314)
+
+[node name="VictoryZone" type="Area2D"]
+script = ExtResource("1_t5xfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(134, 22)
+shape = SubResource("RectangleShape2D_t5xfc")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HinchaBoca" type="Sprite2D" parent="Node2D"]
+position = Vector2(-195.75002, 53.499954)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-136.00002, -41)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca3" type="Sprite2D" parent="Node2D"]
+position = Vector2(-76, 76)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca4" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, -47)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca5" type="Sprite2D" parent="Node2D"]
+position = Vector2(60, 107)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca6" type="Sprite2D" parent="Node2D"]
+position = Vector2(120.00001, 23)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca7" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 76)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca8" type="Sprite2D" parent="Node2D"]
+position = Vector2(240, -30)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca11" type="Sprite2D" parent="Node2D"]
+position = Vector2(240, -30)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca9" type="Sprite2D" parent="Node2D"]
+position = Vector2(120, -94)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca10" type="Sprite2D" parent="Node2D"]
+position = Vector2(120, -94)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca12" type="Sprite2D" parent="Node2D"]
+position = Vector2(359.75, 107.499954)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca13" type="Sprite2D" parent="Node2D"]
+position = Vector2(419.75, -93.500046)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca14" type="Sprite2D" parent="Node2D"]
+position = Vector2(299.75, 154.49995)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[node name="HinchaBoca15" type="Sprite2D" parent="Node2D"]
+position = Vector2(359.75, -46.500046)
+scale = Vector2(0.11669924, 0.1044921)
+texture = ExtResource("1_l2p5h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

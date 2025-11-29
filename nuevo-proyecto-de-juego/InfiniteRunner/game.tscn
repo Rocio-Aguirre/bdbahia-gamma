@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=10 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
+[ext_resource type="PackedScene" uid="uid://conrbq51bavyd" path="res://victory_zone.tscn" id="2_wvhkt"]
 [ext_resource type="Script" uid="uid://c737iytpo1tcy" path="res://InfiniteRunner/spawn_manager.gd" id="3_ap7sh"]
 [ext_resource type="PackedScene" uid="uid://sfd0wb0psukv" path="res://InfiniteRunner/obstaculo.tscn" id="4_om5vi"]
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
@@ -17,9 +18,10 @@ point_count = 2
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_il46p")
+victoryZoneScene = ExtResource("2_wvhkt")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(526, 407)
+position = Vector2(526, 527)
 
 [node name="Limites" type="Node2D" parent="."]
 
@@ -84,5 +86,22 @@ offset_right = 132.0
 offset_bottom = 35.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[node name="TimerLabel" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 1.0
+offset_right = 611.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="VictoryTimer" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(571, 318)
+zoom = Vector2(0.75, 0.75)
+
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyManager/DifficultyUpTimer" to="DifficultyManager" method="_on_difficulty_up_timer_timeout"]
+[connection signal="timeout" from="VictoryTimer" to="." method="_on_victory_timer_timeout"]

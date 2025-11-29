@@ -1,10 +1,25 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $Player
+@export var victoryZoneScene: PackedScene
 
 func _ready() -> void:
 	$UI.update_ui()
+	$Player.playerDamage.connect(checkFailState)
+	
 
-func checkEndGame():
+func winState():
+	get_tree().change_scene_to_file("res://win_state_screen.tscn")
+
+
+func checkFailState():
 	if GlobalDataRunner.vidas <= 0:
-		get_tree().change_scene_to_file("res://game_over_screen.tscn")
+		get_tree().call_deferred("change_scene_to_file","res://game_over_screen.tscn")
+
+
+
+func _on_victory_timer_timeout() -> void:
+	var victoryZoneInstance = victoryZoneScene.instantiate()
+	victoryZoneInstance.global_position = $SpawnManager.global_position
+	victoryZoneInstance.playerEntered.connect(winState)
+	add_child(victoryZoneInstance)

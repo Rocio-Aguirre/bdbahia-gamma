@@ -11,6 +11,12 @@ func check_input():
 func apply_damage():
 	GlobalDataRunner.vidas -= 1
 	playerDamage.emit()
+	GlobalDataRunner.speed = max(GlobalDataRunner.initial_speed, GlobalDataRunner.speed/2)
+	$CollisionShape2D.set_deferred("disabled",true)
+	$AnimationPlayer.play("playerHit")
+	await $AnimationPlayer.animation_finished
+	$CollisionShape2D.set_deferred("disabled",false)
+	
 	
 
 func _physics_process(delta: float) -> void:
