@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnnvwm7n8gw0"
-valid=false
+uid="uid://ontk2lngv57s"
+path="res://.godot/imported/esto-no-es-coca-papi.png-c2628581dd0cad59798e351ede8d791d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://AssetsGraficos/Pantallas/MainMenu.png"
+source_file="res://AssetsGraficos/Obstaculos/esto-no-es-coca-papi.png"
+dest_files=["res://.godot/imported/esto-no-es-coca-papi.png-c2628581dd0cad59798e351ede8d791d.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnnvwm7n8gw0"
-valid=false
+uid="uid://cvew8wciav8da"
+path="res://.godot/imported/damajuana-tinto.png-5e7360c43999da33b3ab6769dab4db89.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://AssetsGraficos/Pantallas/MainMenu.png"
+source_file="res://AssetsGraficos/Obstaculos/damajuana-tinto.png"
+dest_files=["res://.godot/imported/damajuana-tinto.png-5e7360c43999da33b3ab6769dab4db89.ctex"]
 
 [params]
 

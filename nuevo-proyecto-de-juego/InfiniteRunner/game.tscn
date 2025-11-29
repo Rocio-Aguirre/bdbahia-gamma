@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=23 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
 [ext_resource type="PackedScene" uid="uid://conrbq51bavyd" path="res://InfiniteRunner/victory_zone.tscn" id="2_wvhkt"]
 [ext_resource type="Script" uid="uid://c737iytpo1tcy" path="res://InfiniteRunner/spawn_manager.gd" id="3_ap7sh"]
 [ext_resource type="Texture2D" uid="uid://cucvbxut5oy0h" path="res://InfiniteRunner/background.jpg" id="3_nrq3g"]
+[ext_resource type="Script" uid="uid://c48yllnquaabm" path="res://InfiniteRunner/fake_parallax.gd" id="4_mrh2u"]
 [ext_resource type="PackedScene" uid="uid://sfd0wb0psukv" path="res://InfiniteRunner/obstaculo.tscn" id="4_om5vi"]
+[ext_resource type="PackedScene" uid="uid://kni1jaxbgxbf" path="res://InfiniteRunner/background_entity.tscn" id="5_860g3"]
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
 [ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://InfiniteRunner/bache.tscn" id="6_dqqyf"]
 [ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
@@ -14,6 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://b0ybrr8bqb2f5" path="res://AssetsGraficos/Decorations/White heart.png" id="11_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
 [ext_resource type="Texture2D" uid="uid://dugv237y2et1q" path="res://AssetsGraficos/Decorations/Indicator.png" id="13_860g3"]
+
+[sub_resource type="Curve2D" id="Curve2D_860g3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 36, 7, 0, 0, 0, 0, 180, 2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ra7kr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 977, 7, 0, 0, 0, 0, 1114, 6)
+}
+point_count = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -49,6 +63,27 @@ victoryZoneScene = ExtResource("2_wvhkt")
 position = Vector2(575.00006, 323)
 scale = Vector2(0.896875, 0.8944444)
 texture = ExtResource("3_nrq3g")
+
+[node name="FakeParallax" type="Node2D" parent="."]
+script = ExtResource("4_mrh2u")
+npc = ExtResource("5_860g3")
+
+[node name="NPCSpawn" type="Timer" parent="FakeParallax"]
+autostart = true
+
+[node name="Path1" type="Path2D" parent="FakeParallax"]
+curve = SubResource("Curve2D_860g3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FakeParallax/Path1"]
+position = Vector2(36, 7)
+rotation = -0.034708276
+
+[node name="Path2" type="Path2D" parent="FakeParallax"]
+curve = SubResource("Curve2D_ra7kr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FakeParallax/Path2"]
+position = Vector2(977, 7)
+rotation = -0.0072991406
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(573, 449)
@@ -155,6 +190,7 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(571, 318)
 
+[connection signal="timeout" from="FakeParallax/NPCSpawn" to="FakeParallax" method="_on_npc_spawn_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyManager/DifficultyUpTimer" to="DifficultyManager" method="_on_difficulty_up_timer_timeout"]
 [connection signal="timeout" from="VictoryTimer" to="." method="_on_victory_timer_timeout"]

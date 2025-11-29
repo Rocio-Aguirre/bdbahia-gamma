@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnnvwm7n8gw0"
-valid=false
+uid="uid://b1fjfno6edeq4"
+path="res://.godot/imported/ferne.png-71b11160f398f16c61ed67fd1c3dc248.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://AssetsGraficos/Pantallas/MainMenu.png"
+source_file="res://AssetsGraficos/Obstaculos/ferne.png"
+dest_files=["res://.godot/imported/ferne.png-71b11160f398f16c61ed67fd1c3dc248.ctex"]
 
 [params]
 

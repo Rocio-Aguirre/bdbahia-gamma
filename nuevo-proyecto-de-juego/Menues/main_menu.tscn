@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c26jk32t87qd4"]
+[gd_scene load_steps=14 format=3 uid="uid://c26jk32t87qd4"]
 
-[ext_resource type="Texture2D" uid="uid://wnnvwm7n8gw0" path="res://AssetsGraficos/Pantallas/MainMenu.png" id="1_l1hit"]
 [ext_resource type="Script" uid="uid://4itf4of6h15b" path="res://Menues/main_menu.gd" id="1_uau8e"]
+[ext_resource type="Texture2D" uid="uid://qw45dnk3brkj" path="res://AssetsGraficos/Pantallas/MenuConCielo.jpeg" id="2_h1ort"]
 [ext_resource type="AudioStream" uid="uid://dve268i7h2gf2" path="res://Music/menu jam2025.mp3" id="2_uau8e"]
 [ext_resource type="Texture2D" uid="uid://6kh5atsult1n" path="res://AssetsGraficos/Buttons/Jugar inactivo x256.png" id="3_h1ort"]
 [ext_resource type="Texture2D" uid="uid://b8lo6flvsugst" path="res://AssetsGraficos/Buttons/Jugar activo x256.png" id="4_p3hv5"]
@@ -9,6 +9,44 @@
 [ext_resource type="Texture2D" uid="uid://ddcgo606q1it" path="res://AssetsGraficos/Buttons/Gamma activo x256.png" id="6_3qcgf"]
 [ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="7_x02qk"]
 [ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="8_ujn10"]
+[ext_resource type="Texture2D" uid="uid://hghp1xse02ei" path="res://Menues/title.png" id="10_h1ort"]
+
+[sub_resource type="Animation" id="Animation_p3hv5"]
+resource_name = "title_hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(575, 70), Vector2(575, 85), Vector2(575, 70)]
+}
+
+[sub_resource type="Animation" id="Animation_vtxak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(587, 92)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3qcgf"]
+_data = {
+&"RESET": SubResource("Animation_vtxak"),
+&"title_hover": SubResource("Animation_p3hv5")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,10 +58,9 @@ grow_vertical = 2
 script = ExtResource("1_uau8e")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
-position = Vector2(578.5, 327.5)
-scale = Vector2(0.5984375, 0.5935185)
-texture = ExtResource("1_l1hit")
-metadata/_edit_lock_ = true
+position = Vector2(574.5, 322.50003)
+scale = Vector2(0.8945312, 0.90416676)
+texture = ExtResource("2_h1ort")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_uau8e")
@@ -61,6 +98,16 @@ texture_normal = ExtResource("7_x02qk")
 texture_pressed = ExtResource("8_ujn10")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(587, 92)
+texture = ExtResource("10_h1ort")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3qcgf")
+}
+autoplay = "title_hover"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

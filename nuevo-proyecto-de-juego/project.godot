@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalDataRunner="*res://InfiniteRunner/global_data.gd"
+SceneLoader="*res://Utils/SceneSmoothLoad/scene_loader.tscn"

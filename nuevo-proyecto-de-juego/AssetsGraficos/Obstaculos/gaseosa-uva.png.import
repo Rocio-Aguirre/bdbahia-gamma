@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnnvwm7n8gw0"
-valid=false
+uid="uid://bqcyofoxdtqr1"
+path="res://.godot/imported/gaseosa-uva.png-3fca7fbffa228122a2135cd2380ab5d0.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://AssetsGraficos/Pantallas/MainMenu.png"
+source_file="res://AssetsGraficos/Obstaculos/gaseosa-uva.png"
+dest_files=["res://.godot/imported/gaseosa-uva.png-3fca7fbffa228122a2135cd2380ab5d0.ctex"]
 
 [params]
 
