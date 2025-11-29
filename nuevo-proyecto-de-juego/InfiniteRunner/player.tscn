@@ -16,5 +16,5 @@ position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="PlayerCar" type="Sprite2D" parent="."]
-scale = Vector2(0.16015625, 0.13131869)
+scale = Vector2(0.160156, 0.131319)
 texture = ExtResource("2_fcnsu")

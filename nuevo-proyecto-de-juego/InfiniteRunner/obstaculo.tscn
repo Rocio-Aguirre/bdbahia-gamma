@@ -1,25 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://sfd0wb0psukv"]
+[gd_scene load_steps=6 format=3 uid="uid://sfd0wb0psukv"]
 
 [ext_resource type="Script" uid="uid://dil0ip8k74hh6" path="res://InfiniteRunner/obstaculo.gd" id="1_d6ml3"]
-[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://icon.svg" id="1_tn8jh"]
+[ext_resource type="Texture2D" uid="uid://c0hxl18iforjc" path="res://AssetsGraficos/Obstaculos/Hincha 2.png" id="2_4xfsn"]
+[ext_resource type="Texture2D" uid="uid://cmm0cgl0gtgle" path="res://AssetsGraficos/Obstaculos/Hincha 3.png" id="3_cme01"]
+[ext_resource type="Texture2D" uid="uid://cj35cnin3fup8" path="res://AssetsGraficos/Obstaculos/Hincha 4.png" id="4_p2ld5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6ml3"]
-radius = 66.068146
+radius = 66.0681
 
-[node name="Obstaculo" type="StaticBody2D"]
+[node name="Obstaculo" type="Area2D"]
 script = ExtResource("1_d6ml3")
-speed = 100
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d6ml3")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1, -2)
-texture = ExtResource("1_tn8jh")
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-63, -66, 128, 128)
 
+[node name="Hincha2" type="Sprite2D" parent="."]
+position = Vector2(-26, -31)
+texture = ExtResource("2_4xfsn")
+
+[node name="Hincha5" type="Sprite2D" parent="Hincha2"]
+position = Vector2(40, 2)
+texture = ExtResource("2_4xfsn")
+
+[node name="Hincha3" type="Sprite2D" parent="."]
+position = Vector2(-43, 3)
+texture = ExtResource("3_cme01")
+
+[node name="Hincha4" type="Sprite2D" parent="."]
+position = Vector2(0, 18)
+texture = ExtResource("4_p2ld5")
+
+[node name="Hincha6" type="Sprite2D" parent="."]
+position = Vector2(46, 20)
+texture = ExtResource("3_cme01")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=9 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
+[ext_resource type="Script" uid="uid://c737iytpo1tcy" path="res://InfiniteRunner/spawn_manager.gd" id="3_ap7sh"]
+[ext_resource type="PackedScene" uid="uid://sfd0wb0psukv" path="res://InfiniteRunner/obstaculo.tscn" id="4_om5vi"]
+[ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
+[ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
+[sub_resource type="Curve2D" id="Curve2D_il46p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 202, -2, 0, 0, 0, 0, 963, 1)
+}
+point_count = 2
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_il46p")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(526, 407)
@@ -13,7 +25,7 @@ position = Vector2(526, 407)
 
 [node name="LimIzq" type="StaticBody2D" parent="Limites"]
 position = Vector2(201, 0)
-rotation = 1.5707964
+rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/LimIzq"]
 shape = SubResource("WorldBoundaryShape2D_e2o6t")
@@ -21,10 +33,56 @@ metadata/_edit_lock_ = true
 
 [node name="LimDer" type="StaticBody2D" parent="Limites"]
 position = Vector2(965, 0)
-rotation = 4.712389
+rotation = 4.71239
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/LimDer"]
 shape = SubResource("WorldBoundaryShape2D_e2o6t")
 metadata/_edit_lock_ = true
 
-[node name="SpawnBorder" type="Node2D" parent="."]
+[node name="SpawnManager" type="Node2D" parent="."]
+script = ExtResource("3_ap7sh")
+obstacleScene = ExtResource("4_om5vi")
+
+[node name="SpawnTimer" type="Timer" parent="SpawnManager"]
+wait_time = 5.0
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="SpawnManager"]
+curve = SubResource("Curve2D_il46p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnManager/Path2D"]
+position = Vector2(202, -2)
+rotation = 0.0039421613
+
+[node name="DifficultyManager" type="Node2D" parent="."]
+script = ExtResource("5_x6vg1")
+
+[node name="DifficultyUpTimer" type="Timer" parent="DifficultyManager"]
+wait_time = 0.5
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("6_yhjm0")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+offset_right = 1152.0
+offset_bottom = 40.0
+
+[node name="SpeedLabel" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 12.0
+offset_right = 1144.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="VidasLabel" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 12.0
+offset_right = 132.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="DifficultyManager/DifficultyUpTimer" to="DifficultyManager" method="_on_difficulty_up_timer_timeout"]
