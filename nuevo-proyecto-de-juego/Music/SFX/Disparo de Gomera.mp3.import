@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i865ehp0hrkx"
+path="res://.godot/imported/Disparo de Gomera.mp3-dd6fdbd19dc86c62ed1d2c639d83abd4.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/Disparo de Gomera.mp3"
+dest_files=["res://.godot/imported/Disparo de Gomera.mp3-dd6fdbd19dc86c62ed1d2c639d83abd4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

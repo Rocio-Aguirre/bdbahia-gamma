@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfp84v7wsj8xf"
+path="res://.godot/imported/Carga de Gomera.mp3-44a88ae84a15d69e411c5c2f7c7d1c3a.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/Carga de Gomera.mp3"
+dest_files=["res://.godot/imported/Carga de Gomera.mp3-44a88ae84a15d69e411c5c2f7c7d1c3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://wef6l6jwd6gy"]
+[gd_scene load_steps=5 format=3 uid="uid://wef6l6jwd6gy"]
 
 [ext_resource type="Texture2D" uid="uid://c3erkf68x1jse" path="res://AssetsGraficos/Obstaculos/Bache.png" id="1_i5u22"]
 [ext_resource type="Script" uid="uid://ckl6f4fqeptiq" path="res://InfiniteRunner/bache.gd" id="1_v4pw4"]
+[ext_resource type="AudioStream" uid="uid://b1jtgaxbddlko" path="res://Music/SFX/Bache.mp3" id="3_pqmk8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v4pw4"]
 radius = 26.0
@@ -18,5 +19,8 @@ texture = ExtResource("1_i5u22")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_v4pw4")
+
+[node name="DebuffSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pqmk8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

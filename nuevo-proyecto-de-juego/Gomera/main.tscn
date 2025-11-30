@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2pu2eejj50i8"]
+[gd_scene load_steps=26 format=3 uid="uid://c2pu2eejj50i8"]
 
 [ext_resource type="Script" uid="uid://ch0eynqfq0s8t" path="res://Gomera/main.gd" id="1_h5qvj"]
 [ext_resource type="Script" uid="uid://bmmhq1lklw7ou" path="res://Gomera/projectile.gd" id="2_3y4nc"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://ddcgo606q1it" path="res://AssetsGraficos/Buttons/Gamma activo x256.png" id="14_rp7fv"]
 [ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="15_p6md1"]
 [ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="16_hxisq"]
+[ext_resource type="AudioStream" uid="uid://c4ti5073fk4t0" path="res://Music/Victoria.wav" id="17_hxisq"]
+[ext_resource type="AudioStream" uid="uid://bv5rea5qnwp5s" path="res://Music/Perdedor.mp3" id="18_hxisq"]
+[ext_resource type="AudioStream" uid="uid://hniujlxk20kf" path="res://Music/Tema Gomera.mp3" id="18_p6md1"]
+[ext_resource type="AudioStream" uid="uid://i865ehp0hrkx" path="res://Music/SFX/Disparo de Gomera.mp3" id="20_1vmmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12345"]
 radius = 16.0
@@ -85,6 +89,10 @@ position = Vector2(-26, -47)
 [node name="Confetti2" parent="Projectile" instance=ExtResource("3_h2yge")]
 visible = false
 position = Vector2(11, -50)
+
+[node name="DisparoGomera" type="AudioStreamPlayer2D" parent="Projectile"]
+position = Vector2(-126, -493)
+stream = ExtResource("20_1vmmq")
 
 [node name="GroundDefeat" type="StaticBody2D" parent="."]
 visible = false
@@ -268,6 +276,19 @@ visible = false
 visible = false
 position = Vector2(778, 339)
 shape = SubResource("RectangleShape2D_h21lt")
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("17_hxisq")
+volume_db = 4.136
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("18_hxisq")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_p6md1")
+volume_db = -9.714
 
 [connection signal="pressed" from="DefeatScreen/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="DefeatScreen/PlayButton2" to="." method="_on_play_button_2_pressed"]

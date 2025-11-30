@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://sfd0wb0psukv"]
+[gd_scene load_steps=6 format=3 uid="uid://sfd0wb0psukv"]
 
 [ext_resource type="Script" uid="uid://dil0ip8k74hh6" path="res://InfiniteRunner/obstaculo.gd" id="1_d6ml3"]
 [ext_resource type="Texture2D" uid="uid://c80ti3ym5orga" path="res://AssetsGraficos/Obstaculos/Auto azul.png" id="2_d6ml3"]
 [ext_resource type="Texture2D" uid="uid://dhywome3kcjdd" path="res://AssetsGraficos/Obstaculos/Auto rojo.png" id="3_iwcyd"]
+[ext_resource type="AudioStream" uid="uid://d1hge3aw4mari" path="res://Music/SFX/Choque.mp3" id="4_4xfsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6ml3"]
 radius = 66.0681
@@ -31,6 +32,11 @@ position = Vector2(-3.0517578e-05, 25.999985)
 rotation = 3.1415882
 scale = Vector2(0.17185679, 0.14818154)
 texture = ExtResource("3_iwcyd")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4xfsn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

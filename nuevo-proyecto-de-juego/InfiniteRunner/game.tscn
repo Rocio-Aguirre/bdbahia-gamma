@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=31 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
 [ext_resource type="Texture2D" uid="uid://dugv237y2et1q" path="res://AssetsGraficos/Decorations/Indicator.png" id="13_860g3"]
 [ext_resource type="PackedScene" uid="uid://bver3o6ko8c3g" path="res://Utils/PauseMenu/menu_pausa.tscn" id="22_iq2aq"]
+[ext_resource type="AudioStream" uid="uid://de5xkshe410tk" path="res://Music/Tema Auto.mp3" id="23_ibaw4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5rg66"]
 animations = [{
@@ -228,6 +229,10 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(571, 318)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_ibaw4")
+volume_db = -10.286
 
 [connection signal="timeout" from="FakeParallax/NPCSpawn" to="FakeParallax" method="_on_npc_spawn_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]

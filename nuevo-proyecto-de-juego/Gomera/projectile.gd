@@ -24,6 +24,7 @@ func _process(_delta):
 		sprite.scale = Vector2(new_scale, new_scale)
 
 func launch(velocity: Vector2):
+	$DisparoGomera.play()  
 	launched = true
 	freeze = false
 	linear_velocity = velocity

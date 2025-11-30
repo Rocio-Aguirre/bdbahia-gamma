@@ -8,6 +8,11 @@ extends Node2D
 @onready var victory_screen = $VictoryScreen
 @onready var defeat_screen = $DefeatScreen
 
+# Referencias a sonidos
+@onready var victory_sound = $VictorySound
+@onready var defeat_sound = $DefeatSound
+@onready var background_music = $BackgroundMusic  # AGREGADO - Música de fondo
+
 # Variables del juego
 var dragging = false
 var launch_power = 2500
@@ -16,6 +21,7 @@ var initial_projectile_position
 
 func _ready():
 	initial_projectile_position = projectile.global_position
+	background_music.play()  # AGREGADO - Reproducir música al iniciar
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -83,14 +89,17 @@ func launch_projectile():
 func reset_projectile():
 	projectile.reset_position(initial_projectile_position)
 
-
 func show_victory():
 	victory_screen.visible = true
+	victory_sound.play()
+	background_music.stop()  # AGREGADO - Detener música de fondo
 	# Pausar el juego
 	get_tree().paused = true
 
 func show_defeat():
 	defeat_screen.visible = true
+	defeat_sound.play()
+	background_music.stop()  # AGREGADO - Detener música de fondo
 	# Pausar el juego
 	get_tree().paused = true
 
@@ -102,25 +111,24 @@ func restart_game():
 	# Despausar
 	get_tree().paused = false
 	
+	# Reiniciar música de fondo
+	background_music.play()  # AGREGADO - Volver a reproducir música
+	
 	# Resetear proyectil
 	reset_projectile()
-
 
 func _on_play_button_pressed() -> void:
 	get_tree().paused = false
 	SceneLoader.change_scene("res://Gomera/main.tscn")
 
-
 func _on_play_button_2_pressed() -> void:
 	get_tree().paused = false
 	SceneLoader.change_scene("res://InfiniteRunner/game.tscn")
-
 
 func _on_exit_button_pressed() -> void:
 	get_tree().paused = false
 	SceneLoader.change_scene("res://Menues/main_menu.tscn")
 
-
 func _on_credits_button_pressed() -> void:
-	get_tree().paused = false
+	get_tree().paused = false 
 	SceneLoader.change_scene("res://Menues/credits_menu.tscn")

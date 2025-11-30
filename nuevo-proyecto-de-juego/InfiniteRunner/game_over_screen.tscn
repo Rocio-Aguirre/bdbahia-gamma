@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://coujn1b7aipi5"]
+[gd_scene load_steps=8 format=3 uid="uid://coujn1b7aipi5"]
 
 [ext_resource type="Script" uid="uid://c0nvjvimj43d0" path="res://InfiniteRunner/game_over_screen.gd" id="1_6nug6"]
 [ext_resource type="Texture2D" uid="uid://0wpth1p6olrl" path="res://AssetsGraficos/Pantallas/Pantalla de Perderdor.png" id="1_58cv2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b8lo6flvsugst" path="res://AssetsGraficos/Buttons/Jugar activo x256.png" id="3_25sxb"]
 [ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="4_cpwia"]
 [ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="5_j8grl"]
+[ext_resource type="AudioStream" uid="uid://bv5rea5qnwp5s" path="res://Music/Perdedor.mp3" id="7_25sxb"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_6nug6")
@@ -36,6 +37,9 @@ offset_right = 855.0
 offset_bottom = 637.0
 texture_normal = ExtResource("4_cpwia")
 texture_pressed = ExtResource("5_j8grl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_25sxb")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
