@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2pu2eejj50i8"]
+[gd_scene load_steps=27 format=3 uid="uid://c2pu2eejj50i8"]
 
 [ext_resource type="Script" uid="uid://ch0eynqfq0s8t" path="res://Gomera/main.gd" id="1_h5qvj"]
 [ext_resource type="Script" uid="uid://bmmhq1lklw7ou" path="res://Gomera/projectile.gd" id="2_3y4nc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lhulvtapj62k" path="res://AssetsGraficos/Nena 320x320.png" id="4_is2xc"]
 [ext_resource type="Texture2D" uid="uid://0wpth1p6olrl" path="res://AssetsGraficos/Pantallas/Pantalla de Perderdor.png" id="6_h21lt"]
 [ext_resource type="Texture2D" uid="uid://blchtanh66qnj" path="res://AssetsGraficos/Pantallas/Pantalla de Ganador.png" id="7_2p4cm"]
+[ext_resource type="AudioStream" uid="uid://c7s6b6nqxyqi8" path="res://Music/SFX/Grito.mp3" id="8_h6iop"]
 [ext_resource type="Texture2D" uid="uid://6kh5atsult1n" path="res://AssetsGraficos/Buttons/Jugar inactivo x256.png" id="9_av3by"]
 [ext_resource type="Texture2D" uid="uid://b8lo6flvsugst" path="res://AssetsGraficos/Buttons/Jugar activo x256.png" id="10_860xe"]
 [ext_resource type="Texture2D" uid="uid://b6nsh1kjsmv03" path="res://Menues/Captura de pantalla 2025-11-30 011748.png" id="11_860xe"]
@@ -93,6 +94,10 @@ position = Vector2(11, -50)
 [node name="DisparoGomera" type="AudioStreamPlayer2D" parent="Projectile"]
 position = Vector2(-126, -493)
 stream = ExtResource("20_1vmmq")
+
+[node name="Grito" type="AudioStreamPlayer2D" parent="Projectile"]
+stream = ExtResource("8_h6iop")
+volume_db = -6.195
 
 [node name="GroundDefeat" type="StaticBody2D" parent="."]
 visible = false

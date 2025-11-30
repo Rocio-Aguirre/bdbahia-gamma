@@ -29,6 +29,7 @@ func launch(velocity: Vector2):
 	freeze = false
 	linear_velocity = velocity
 	angular_velocity = velocity.x / 100
+	$Grito.play()
 
 func reset_position(pos: Vector2):
 	launched = false
