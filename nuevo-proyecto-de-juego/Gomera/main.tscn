@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2pu2eejj50i8"]
+[gd_scene load_steps=14 format=3 uid="uid://c2pu2eejj50i8"]
 
 [ext_resource type="Script" uid="uid://ch0eynqfq0s8t" path="res://Gomera/main.gd" id="1_h5qvj"]
 [ext_resource type="Script" uid="uid://bmmhq1lklw7ou" path="res://Gomera/projectile.gd" id="2_3y4nc"]
 [ext_resource type="Texture2D" uid="uid://cdmog58g62s1l" path="res://AssetsGraficos/Pantallas/Pantalla de Catapulta.png" id="2_n7o5k"]
+[ext_resource type="PackedScene" uid="uid://bver3o6ko8c3g" path="res://Utils/PauseMenu/menu_pausa.tscn" id="3_2p4cm"]
 [ext_resource type="PackedScene" uid="uid://rha3trihj60p" path="res://Gomera/confetti.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://lhulvtapj62k" path="res://AssetsGraficos/Nena 320x320.png" id="4_is2xc"]
 [ext_resource type="Texture2D" uid="uid://0wpth1p6olrl" path="res://AssetsGraficos/Pantallas/Pantalla de Perderdor.png" id="6_h21lt"]
@@ -30,6 +31,8 @@ script = ExtResource("1_h5qvj")
 position = Vector2(579.25, 324.50003)
 scale = Vector2(0.4744062, 0.42382815)
 texture = ExtResource("2_n7o5k")
+
+[node name="MenuPausa" parent="." instance=ExtResource("3_2p4cm")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)

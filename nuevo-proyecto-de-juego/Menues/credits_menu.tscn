@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4gvs8u60bpok"]
+[gd_scene load_steps=10 format=3 uid="uid://c4gvs8u60bpok"]
 
 [ext_resource type="Script" uid="uid://c161j84ahrm8r" path="res://Menues/credits_menu.gd" id="1_wli2x"]
 [ext_resource type="Texture2D" uid="uid://dkk7jsho6qccn" path="res://AssetsGraficos/Pantallas/Pantalla de Inicio.png" id="2_kl5sn"]
@@ -16,6 +16,67 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_wli2x"]
+resource_name = "wiggle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.49, 0.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(517, 74), Vector2(517, 85), Vector2(517, 74)]
+}
+
+[sub_resource type="Animation" id="Animation_kl5sn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(517, 74)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb5aw"]
+_data = {
+&"RESET": SubResource("Animation_kl5sn"),
+&"wiggle": SubResource("Animation_wli2x")
+}
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -44,10 +105,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pxiif")
 
 [node name="BackButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 473.0
-offset_right = 524.0
-offset_bottom = 543.0
+offset_left = 351.0
+offset_top = 463.0
+offset_right = 497.0
+offset_bottom = 533.0
 texture_normal = ExtResource("3_jb5aw")
 texture_pressed = ExtResource("4_wqoqo")
 ignore_texture_size = true
@@ -56,5 +117,101 @@ stretch_mode = 0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_1depg")
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 74.0
+offset_right = 853.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Equipo Gamma"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 154.0
+offset_right = 1083.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 24
+text = "Arte"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 363.0
+offset_right = 853.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 24
+text = "Sonido"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 154.0
+offset_right = 650.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 24
+text = "programacion"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 205.0
+offset_right = 650.0
+offset_bottom = 233.0
+theme_override_font_sizes/font_size = 20
+text = "Diego orbe"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="."]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 205.0
+offset_right = 1091.0
+offset_bottom = 233.0
+theme_override_font_sizes/font_size = 20
+text = "Carolina siracusa"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 423.0
+offset_right = 853.0
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 20
+text = "Ignacio Liberman"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 237.0
+offset_right = 650.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 20
+text = "Geronimo Le Lan"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 270.0
+offset_right = 650.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 20
+text = "Rocio Aguirre"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jb5aw")
+}
+autoplay = "wiggle"
 
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]

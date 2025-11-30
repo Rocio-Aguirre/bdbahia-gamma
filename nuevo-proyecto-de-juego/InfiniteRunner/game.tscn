@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=30 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ybrr8bqb2f5" path="res://AssetsGraficos/Decorations/White heart.png" id="11_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
 [ext_resource type="Texture2D" uid="uid://dugv237y2et1q" path="res://AssetsGraficos/Decorations/Indicator.png" id="13_860g3"]
+[ext_resource type="PackedScene" uid="uid://bver3o6ko8c3g" path="res://Utils/PauseMenu/menu_pausa.tscn" id="22_iq2aq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5rg66"]
 animations = [{
@@ -39,7 +40,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"play",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="Curve2D" id="Curve2D_860g3"]
@@ -92,7 +93,7 @@ position = Vector2(574, 315.5)
 scale = Vector2(0.6274725, 0.61621094)
 sprite_frames = SubResource("SpriteFrames_5rg66")
 animation = &"play"
-frame_progress = 0.46167547
+frame_progress = 0.55688596
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -218,6 +219,8 @@ texture = ExtResource("12_mrh2u")
 position = Vector2(614.99994, 42.000015)
 scale = Vector2(0.26171875, 0.31249988)
 texture = ExtResource("13_860g3")
+
+[node name="MenuPausa" parent="." instance=ExtResource("22_iq2aq")]
 
 [node name="VictoryTimer" type="Timer" parent="."]
 wait_time = 30.0
