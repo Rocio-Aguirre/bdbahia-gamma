@@ -1,16 +1,18 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $Player
-@onready var background_music = $BackgroundMusic  # AGREGADO - Música de fondo
+@onready var background_music = $BackgroundMusic 
 @export var victoryZoneScene: PackedScene
 
 func _ready() -> void:
 	$Player.playerDamage.connect(checkFailState)
 	$AnimatedSprite2D.play()
-	background_music.play()  # AGREGADO - Reproducir música al iniciar
+	background_music.play()  
+	$Hinchada.play()
 	
 func winState():
 	background_music.stop()  
+	$Hinchada.stop()
 	get_tree().change_scene_to_file("res://Gomera/main.tscn")
 
 func checkFailState():
@@ -18,6 +20,7 @@ func checkFailState():
 	$UI.update_lives()
 	if GlobalDataRunner.vidas <= 0:
 		background_music.stop()  
+		$Hinchada.stop()
 		get_tree().call_deferred("change_scene_to_file","res://InfiniteRunner/game_over_screen.tscn")
 
 func _on_victory_timer_timeout() -> void:

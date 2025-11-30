@@ -21,7 +21,8 @@ var initial_projectile_position
 
 func _ready():
 	initial_projectile_position = projectile.global_position
-	background_music.play()  # AGREGADO - Reproducir música al iniciar
+	background_music.play()
+	$Hinchada.play()  
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -92,15 +93,15 @@ func reset_projectile():
 func show_victory():
 	victory_screen.visible = true
 	victory_sound.play()
-	background_music.stop()  # AGREGADO - Detener música de fondo
-	# Pausar el juego
+	#background_music.stop() 
+	$Hinchada.stop() 
 	get_tree().paused = true
 
 func show_defeat():
 	defeat_screen.visible = true
 	defeat_sound.play()
-	background_music.stop()  # AGREGADO - Detener música de fondo
-	# Pausar el juego
+	background_music.stop() 
+	#$Hinchada.stop() 
 	get_tree().paused = true
 
 func restart_game():
@@ -112,8 +113,8 @@ func restart_game():
 	get_tree().paused = false
 	
 	# Reiniciar música de fondo
-	background_music.play()  # AGREGADO - Volver a reproducir música
-	
+	background_music.play() 
+	$Hinchada.play() 
 	# Resetear proyectil
 	reset_projectile()
 
