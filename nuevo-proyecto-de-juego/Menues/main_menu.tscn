@@ -11,6 +11,21 @@
 [ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="8_ujn10"]
 [ext_resource type="Texture2D" uid="uid://hghp1xse02ei" path="res://Menues/title.png" id="10_h1ort"]
 
+[sub_resource type="Animation" id="Animation_vtxak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(587, 92)]
+}
+
 [sub_resource type="Animation" id="Animation_p3hv5"]
 resource_name = "title_hover"
 loop_mode = 1
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(575, 70), Vector2(575, 85), Vector2(575, 70)]
-}
-
-[sub_resource type="Animation" id="Animation_vtxak"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(587, 92)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3qcgf"]
@@ -91,9 +91,9 @@ stretch_mode = 0
 [node name="ExitButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 945.0
-offset_top = 331.0
+offset_top = 335.0
 offset_right = 1092.0
-offset_bottom = 410.0
+offset_bottom = 414.0
 texture_normal = ExtResource("7_x02qk")
 texture_pressed = ExtResource("8_ujn10")
 ignore_texture_size = true

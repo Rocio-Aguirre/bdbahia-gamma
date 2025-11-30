@@ -104,3 +104,23 @@ func restart_game():
 	
 	# Resetear proyectil
 	reset_projectile()
+
+
+func _on_play_button_pressed() -> void:
+	get_tree().paused = false
+	SceneLoader.change_scene("res://Gomera/main.tscn")
+
+
+func _on_play_button_2_pressed() -> void:
+	get_tree().paused = false
+	SceneLoader.change_scene("res://InfiniteRunner/game.tscn")
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().paused = false
+	SceneLoader.change_scene("res://Menues/main_menu.tscn")
+
+
+func _on_credits_button_pressed() -> void:
+	get_tree().paused = false
+	SceneLoader.change_scene("res://Menues/credits_menu.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2pu2eejj50i8"]
+[gd_scene load_steps=22 format=3 uid="uid://c2pu2eejj50i8"]
 
 [ext_resource type="Script" uid="uid://ch0eynqfq0s8t" path="res://Gomera/main.gd" id="1_h5qvj"]
 [ext_resource type="Script" uid="uid://bmmhq1lklw7ou" path="res://Gomera/projectile.gd" id="2_3y4nc"]
@@ -8,6 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://lhulvtapj62k" path="res://AssetsGraficos/Nena 320x320.png" id="4_is2xc"]
 [ext_resource type="Texture2D" uid="uid://0wpth1p6olrl" path="res://AssetsGraficos/Pantallas/Pantalla de Perderdor.png" id="6_h21lt"]
 [ext_resource type="Texture2D" uid="uid://blchtanh66qnj" path="res://AssetsGraficos/Pantallas/Pantalla de Ganador.png" id="7_2p4cm"]
+[ext_resource type="Texture2D" uid="uid://6kh5atsult1n" path="res://AssetsGraficos/Buttons/Jugar inactivo x256.png" id="9_av3by"]
+[ext_resource type="Texture2D" uid="uid://b8lo6flvsugst" path="res://AssetsGraficos/Buttons/Jugar activo x256.png" id="10_860xe"]
+[ext_resource type="Texture2D" uid="uid://b6nsh1kjsmv03" path="res://Menues/Captura de pantalla 2025-11-30 011748.png" id="11_860xe"]
+[ext_resource type="Texture2D" uid="uid://dbwodavr5g15k" path="res://Menues/lvl1.png" id="12_2wy74"]
+[ext_resource type="Texture2D" uid="uid://bwe7pxtofoqk3" path="res://AssetsGraficos/Buttons/Gamma inactivo x256.png" id="13_4gu5y"]
+[ext_resource type="Texture2D" uid="uid://ddcgo606q1it" path="res://AssetsGraficos/Buttons/Gamma activo x256.png" id="14_rp7fv"]
+[ext_resource type="Texture2D" uid="uid://bqslma32gqm8c" path="res://AssetsGraficos/Buttons/Salir inactivo x256.png" id="15_p6md1"]
+[ext_resource type="Texture2D" uid="uid://biihncjrlfdnj" path="res://AssetsGraficos/Buttons/Salir activo x256.png" id="16_hxisq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12345"]
 radius = 16.0
@@ -126,6 +134,7 @@ position = Vector2(50.5, -2.5)
 shape = SubResource("RectangleShape2D_platform1")
 
 [node name="DefeatScreen" type="CanvasLayer" parent="."]
+process_mode = 3
 visible = false
 
 [node name="Panel" type="Panel" parent="DefeatScreen"]
@@ -133,11 +142,62 @@ offset_right = 1159.0
 offset_bottom = 651.0
 
 [node name="Sprite2D" type="Sprite2D" parent="DefeatScreen"]
-position = Vector2(565, 325.00003)
+position = Vector2(615, 325.00003)
 scale = Vector2(0.6425782, 0.6425782)
 texture = ExtResource("6_h21lt")
 
+[node name="PlayButton" type="TextureButton" parent="DefeatScreen"]
+offset_left = 64.0
+offset_top = 251.0
+offset_right = 211.0
+offset_bottom = 323.0
+texture_normal = ExtResource("9_av3by")
+texture_pressed = ExtResource("10_860xe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="DefeatScreen"]
+position = Vector2(142, 175)
+scale = Vector2(0.22155894, 0.23637938)
+texture = ExtResource("11_860xe")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DefeatScreen"]
+position = Vector2(142, 442.99997)
+scale = Vector2(0.2221564, 0.24116305)
+texture = ExtResource("12_2wy74")
+
+[node name="PlayButton2" type="TextureButton" parent="DefeatScreen"]
+offset_left = 64.0
+offset_top = 519.0
+offset_right = 211.0
+offset_bottom = 591.0
+texture_normal = ExtResource("9_av3by")
+texture_pressed = ExtResource("10_860xe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreditsButton" type="TextureButton" parent="DefeatScreen"]
+offset_left = 964.0
+offset_top = 269.0
+offset_right = 1110.0
+offset_bottom = 344.0
+texture_normal = ExtResource("13_4gu5y")
+texture_pressed = ExtResource("14_rp7fv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="DefeatScreen"]
+offset_left = 964.0
+offset_top = 354.0
+offset_right = 1111.0
+offset_bottom = 433.0
+texture_normal = ExtResource("15_p6md1")
+texture_pressed = ExtResource("16_hxisq")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="VictoryScreen" type="CanvasLayer" parent="."]
+process_mode = 3
 visible = false
 
 [node name="Panel" type="Panel" parent="VictoryScreen"]
@@ -151,6 +211,56 @@ position = Vector2(588.875, 326.125)
 scale = Vector2(0.595459, 0.63061523)
 texture = ExtResource("7_2p4cm")
 
+[node name="PlayButton" type="TextureButton" parent="VictoryScreen"]
+offset_left = 64.0
+offset_top = 251.0
+offset_right = 211.0
+offset_bottom = 323.0
+texture_normal = ExtResource("9_av3by")
+texture_pressed = ExtResource("10_860xe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="VictoryScreen"]
+position = Vector2(142, 175)
+scale = Vector2(0.22155894, 0.23637938)
+texture = ExtResource("11_860xe")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VictoryScreen"]
+position = Vector2(142, 442.99997)
+scale = Vector2(0.2221564, 0.24116305)
+texture = ExtResource("12_2wy74")
+
+[node name="PlayButton2" type="TextureButton" parent="VictoryScreen"]
+offset_left = 64.0
+offset_top = 519.0
+offset_right = 211.0
+offset_bottom = 591.0
+texture_normal = ExtResource("9_av3by")
+texture_pressed = ExtResource("10_860xe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreditsButton" type="TextureButton" parent="VictoryScreen"]
+offset_left = 946.0
+offset_top = 269.0
+offset_right = 1092.0
+offset_bottom = 344.0
+texture_normal = ExtResource("13_4gu5y")
+texture_pressed = ExtResource("14_rp7fv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="VictoryScreen"]
+offset_left = 946.0
+offset_top = 354.0
+offset_right = 1093.0
+offset_bottom = 433.0
+texture_normal = ExtResource("15_p6md1")
+texture_pressed = ExtResource("16_hxisq")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
 
@@ -158,3 +268,12 @@ visible = false
 visible = false
 position = Vector2(778, 339)
 shape = SubResource("RectangleShape2D_h21lt")
+
+[connection signal="pressed" from="DefeatScreen/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="DefeatScreen/PlayButton2" to="." method="_on_play_button_2_pressed"]
+[connection signal="pressed" from="DefeatScreen/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="DefeatScreen/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VictoryScreen/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VictoryScreen/PlayButton2" to="." method="_on_play_button_2_pressed"]
+[connection signal="pressed" from="VictoryScreen/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VictoryScreen/ExitButton" to="." method="_on_exit_button_pressed"]
