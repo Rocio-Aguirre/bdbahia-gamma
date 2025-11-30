@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GlobalDataRunner="*res://InfiniteRunner/global_data.gd"
 SceneLoader="*res://Utils/SceneSmoothLoad/scene_loader.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [gui]
 
 theme/custom_font="uid://d2sw4l82gcre"

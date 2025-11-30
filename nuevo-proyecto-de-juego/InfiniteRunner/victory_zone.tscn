@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://conrbq51bavyd"]
+[gd_scene load_steps=16 format=3 uid="uid://conrbq51bavyd"]
 
 [ext_resource type="Texture2D" uid="uid://caj6kb54gxv67" path="res://AssetsGraficos/Obstaculos/Hincha Boca.png" id="1_l2p5h"]
 [ext_resource type="Script" uid="uid://curpye0yv5ja3" path="res://InfiniteRunner/victory_zone.gd" id="1_t5xfc"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dkk7jsho6qccn" path="res://AssetsGraficos/Pantallas/Pantalla de Inicio.png" id="3_45vq8"]
 [ext_resource type="Texture2D" uid="uid://cj35cnin3fup8" path="res://AssetsGraficos/Obstaculos/Hincha 4.png" id="5_bxllm"]
 [ext_resource type="Texture2D" uid="uid://cmm0cgl0gtgle" path="res://AssetsGraficos/Obstaculos/Hincha 3.png" id="6_ofawd"]
+[ext_resource type="Texture2D" uid="uid://bel5vpb3qh6r2" path="res://AssetsGraficos/Obstaculos/16.png" id="7_bxllm"]
+[ext_resource type="Texture2D" uid="uid://b1fjfno6edeq4" path="res://AssetsGraficos/Obstaculos/ferne.png" id="8_6tfem"]
+[ext_resource type="Texture2D" uid="uid://bn6a2dfsqyynr" path="res://AssetsGraficos/Obstaculos/cerveza-01.png" id="9_sv1nh"]
+[ext_resource type="Texture2D" uid="uid://cvew8wciav8da" path="res://AssetsGraficos/Obstaculos/damajuana-tinto.png" id="10_i7f4r"]
+[ext_resource type="Texture2D" uid="uid://mpatwcllgkng" path="res://AssetsGraficos/Obstaculos/tetra-tinto-01-abierto.png" id="11_vtlrg"]
+[ext_resource type="Texture2D" uid="uid://imad05rccylm" path="res://AssetsGraficos/Obstaculos/tetra-blanco-01-abierto.png" id="12_oxsqf"]
+[ext_resource type="Texture2D" uid="uid://ontk2lngv57s" path="res://AssetsGraficos/Obstaculos/esto-no-es-coca-papi.png" id="13_hrrua"]
+[ext_resource type="Texture2D" uid="uid://bqcyofoxdtqr1" path="res://AssetsGraficos/Obstaculos/gaseosa-uva.png" id="14_aga67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5xfc"]
 size = Vector2(1042, 314)
@@ -74,7 +82,7 @@ scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
 [node name="HinchaBoca11" type="Sprite2D" parent="Node2D"]
-position = Vector2(635.75, 45.49994)
+position = Vector2(688.00006, 40)
 scale = Vector2(0.11669924, 0.1044921)
 texture = ExtResource("1_l2p5h")
 
@@ -127,5 +135,62 @@ texture = ExtResource("5_bxllm")
 position = Vector2(408, -32)
 scale = Vector2(0.16015622, 0.1601561)
 texture = ExtResource("6_ofawd")
+
+[node name="16" type="Sprite2D" parent="Node2D"]
+position = Vector2(1112, -272)
+scale = Vector2(0.375, 0.3875)
+texture = ExtResource("7_bxllm")
+
+[node name="17" type="Sprite2D" parent="Node2D"]
+position = Vector2(40, -272.00003)
+scale = Vector2(0.375, 0.3875)
+texture = ExtResource("7_bxllm")
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 1184.0
+offset_top = -148.0
+offset_right = 1200.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_left = -48.0
+offset_top = -148.0
+offset_right = -32.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[node name="Ferne" type="Sprite2D" parent="."]
+position = Vector2(184, 40)
+texture = ExtResource("8_6tfem")
+
+[node name="Cerveza01" type="Sprite2D" parent="."]
+position = Vector2(952, 136)
+texture = ExtResource("9_sv1nh")
+
+[node name="DamajuanaTinto" type="Sprite2D" parent="."]
+position = Vector2(152, 312)
+texture = ExtResource("10_i7f4r")
+
+[node name="TetraTinto01Abierto" type="Sprite2D" parent="."]
+position = Vector2(992, 296)
+texture = ExtResource("11_vtlrg")
+
+[node name="TetraBlanco01Abierto" type="Sprite2D" parent="."]
+position = Vector2(1112, 176)
+texture = ExtResource("12_oxsqf")
+
+[node name="EstoNoEsCocaPapi" type="Sprite2D" parent="."]
+position = Vector2(64, 472)
+texture = ExtResource("13_hrrua")
+
+[node name="GaseosaUva" type="Sprite2D" parent="."]
+position = Vector2(720, 88)
+texture = ExtResource("14_aga67")
+
+[node name="Cerveza02" type="Sprite2D" parent="."]
+position = Vector2(512, 80)
+texture = ExtResource("9_sv1nh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -29,6 +29,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				# Verificar si el mouse está cerca del proyectil
+				$Mano.visible = false
 				var distance = event.position.distance_to(projectile.global_position)
 				if distance < 50 and not projectile.launched:
 					dragging = true
