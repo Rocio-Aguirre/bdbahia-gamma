@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kni1jaxbgxbf"]
+[gd_scene load_steps=11 format=3 uid="uid://kni1jaxbgxbf"]
 
 [ext_resource type="Script" uid="uid://yd4wa753ials" path="res://background_entity.gd" id="1_gwdc5"]
 [ext_resource type="Texture2D" uid="uid://c0hxl18iforjc" path="res://AssetsGraficos/Obstaculos/Hincha 2.png" id="2_0vo27"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b1fjfno6edeq4" path="res://AssetsGraficos/Obstaculos/ferne.png" id="5_p3ala"]
 [ext_resource type="Texture2D" uid="uid://bn6a2dfsqyynr" path="res://AssetsGraficos/Obstaculos/cerveza-01.png" id="7_82g3a"]
 [ext_resource type="Texture2D" uid="uid://mpatwcllgkng" path="res://AssetsGraficos/Obstaculos/tetra-tinto-01-abierto.png" id="9_ttkpx"]
+[ext_resource type="Texture2D" uid="uid://bel5vpb3qh6r2" path="res://AssetsGraficos/Obstaculos/16.png" id="10_p3ala"]
 
 [node name="BackgroundEntity" type="Node2D"]
 script = ExtResource("1_gwdc5")
@@ -59,5 +60,10 @@ texture = ExtResource("5_34joi")
 position = Vector2(146.28586, 204.80002)
 scale = Vector2(9.142858, 8.533334)
 texture = ExtResource("9_ttkpx")
+
+[node name="5" type="Sprite2D" parent="SpriteCollection"]
+visible = false
+scale = Vector2(0.28, 0.34)
+texture = ExtResource("10_p3ala")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
