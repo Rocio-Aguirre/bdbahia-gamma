@@ -8,6 +8,7 @@ extends Node2D
 
 func _ready() -> void:
 	$Player.playerDamage.connect(checkFailState)
+	$AnimatedSprite2D.play()
 	
 
 func winState():
@@ -15,6 +16,7 @@ func winState():
 
 
 func checkFailState():
+	$ScreenshakeSystem.add_trauma(1.0)
 	$UI.update_lives()
 	if GlobalDataRunner.vidas <= 0:
 		get_tree().call_deferred("change_scene_to_file","res://InfiniteRunner/game_over_screen.tscn")

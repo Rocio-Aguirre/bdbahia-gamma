@@ -3,6 +3,7 @@ extends Area2D
 var speed
 func _ready() -> void:
 	speed = GlobalDataRunner.speed
+	$Sprites.get_children().pick_random().visible = true
 
 
 func _physics_process(delta: float) -> void:

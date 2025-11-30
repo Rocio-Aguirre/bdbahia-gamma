@@ -6,7 +6,7 @@ extends Node
 @export var max_speed = 1000
 @export var accel = 50
 @onready var speed = initial_speed
-
+@onready var obstacleSpawnAmount = 1
 
 func reset_data():
 	vidas = 3

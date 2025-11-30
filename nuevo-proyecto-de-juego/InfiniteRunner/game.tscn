@@ -1,21 +1,46 @@
-[gd_scene load_steps=23 format=3 uid="uid://c6f2ne5a7bt3q"]
+[gd_scene load_steps=29 format=3 uid="uid://c6f2ne5a7bt3q"]
 
 [ext_resource type="PackedScene" uid="uid://cpsaxvvwqv80r" path="res://InfiniteRunner/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bwdwlcdi8a5uv" path="res://InfiniteRunner/game.gd" id="1_il46p"]
 [ext_resource type="PackedScene" uid="uid://conrbq51bavyd" path="res://InfiniteRunner/victory_zone.tscn" id="2_wvhkt"]
 [ext_resource type="Script" uid="uid://c737iytpo1tcy" path="res://InfiniteRunner/spawn_manager.gd" id="3_ap7sh"]
 [ext_resource type="Texture2D" uid="uid://cucvbxut5oy0h" path="res://InfiniteRunner/background.jpg" id="3_nrq3g"]
+[ext_resource type="PackedScene" uid="uid://do7e5w6gcwj3h" path="res://Utils/Screenshake/screenshake_system.tscn" id="3_ra7kr"]
+[ext_resource type="Texture2D" uid="uid://cwgknrfg01x7r" path="res://AssetsGraficos/CalleFrames/frame_0001.png" id="4_bnhrn"]
 [ext_resource type="Script" uid="uid://c48yllnquaabm" path="res://InfiniteRunner/fake_parallax.gd" id="4_mrh2u"]
 [ext_resource type="PackedScene" uid="uid://sfd0wb0psukv" path="res://InfiniteRunner/obstaculo.tscn" id="4_om5vi"]
 [ext_resource type="PackedScene" uid="uid://kni1jaxbgxbf" path="res://InfiniteRunner/background_entity.tscn" id="5_860g3"]
+[ext_resource type="Texture2D" uid="uid://erb3q2a4ap4j" path="res://AssetsGraficos/CalleFrames/frame_0002.png" id="5_iq2aq"]
 [ext_resource type="Script" uid="uid://cxe08aqxdl706" path="res://InfiniteRunner/difficulty_manager.gd" id="5_x6vg1"]
 [ext_resource type="PackedScene" uid="uid://wef6l6jwd6gy" path="res://InfiniteRunner/bache.tscn" id="6_dqqyf"]
+[ext_resource type="Texture2D" uid="uid://dkftdxmdeg5v6" path="res://AssetsGraficos/CalleFrames/frame_0003.png" id="6_ibaw4"]
 [ext_resource type="Script" uid="uid://s0bew6e002i5" path="res://InfiniteRunner/ui.gd" id="6_yhjm0"]
+[ext_resource type="Texture2D" uid="uid://1622nsru0sms" path="res://AssetsGraficos/CalleFrames/frame_0004.png" id="7_65x7h"]
 [ext_resource type="PackedScene" uid="uid://5pjg1nq0lyrd" path="res://InfiniteRunner/warning_alert.tscn" id="8_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d2k8n5u1kcfph" path="res://AssetsGraficos/Decorations/Blue heart.png" id="10_0vmfc"]
 [ext_resource type="Texture2D" uid="uid://b0ybrr8bqb2f5" path="res://AssetsGraficos/Decorations/White heart.png" id="11_b8mj7"]
 [ext_resource type="Texture2D" uid="uid://d4lli8fkojif2" path="res://AssetsGraficos/Decorations/Speedometer.png" id="12_mrh2u"]
 [ext_resource type="Texture2D" uid="uid://dugv237y2et1q" path="res://AssetsGraficos/Decorations/Indicator.png" id="13_860g3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rg66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bnhrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iq2aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ibaw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_65x7h")
+}],
+"loop": true,
+"name": &"play",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_860g3"]
 _data = {
@@ -59,7 +84,18 @@ corner_radius_bottom_left = 5
 script = ExtResource("1_il46p")
 victoryZoneScene = ExtResource("2_wvhkt")
 
+[node name="ScreenshakeSystem" parent="." node_paths=PackedStringArray("camara") instance=ExtResource("3_ra7kr")]
+camara = NodePath("../Camera2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(574, 315.5)
+scale = Vector2(0.6274725, 0.61621094)
+sprite_frames = SubResource("SpriteFrames_5rg66")
+animation = &"play"
+frame_progress = 0.46167547
+
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(575.00006, 323)
 scale = Vector2(0.896875, 0.8944444)
 texture = ExtResource("3_nrq3g")

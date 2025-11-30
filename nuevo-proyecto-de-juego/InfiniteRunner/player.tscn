@@ -1,7 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpsaxvvwqv80r"]
+[gd_scene load_steps=16 format=3 uid="uid://cpsaxvvwqv80r"]
 
 [ext_resource type="Script" uid="uid://dt7hi11wti1t5" path="res://InfiniteRunner/player.gd" id="1_ksvj7"]
 [ext_resource type="Texture2D" uid="uid://dqrw2aeobmrjv" path="res://AssetsGraficos/playerCar.png" id="2_fcnsu"]
+
+[sub_resource type="Gradient" id="Gradient_fcnsu"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 0.6313726)
+
+[sub_resource type="Gradient" id="Gradient_ksvj7"]
+colors = PackedColorArray(0.427493, 0.42749307, 0.42749307, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fcnsu"]
+gradient = SubResource("Gradient_ksvj7")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.48598132, 0.21495327)
+fill_to = Vector2(0.4906542, 0.6775701)
+
+[sub_resource type="Curve" id="Curve_i7new"]
+_data = [Vector2(0.0755814, 0.08988774), 0.0, 0.0, 0, 0, Vector2(0.0755814, 0.08988774), 0.0, 0.0, 0, 0, Vector2(0.81976753, 0.9662922), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_f0ul6"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.20392157)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 41.0
@@ -114,6 +135,56 @@ _data = {
 script = ExtResource("1_ksvj7")
 horizontal_move = 500.0
 
+[node name="ChispasPoint" type="Node2D" parent="."]
+
+[node name="ChispasParticles" type="CPUParticles2D" parent="ChispasPoint"]
+position = Vector2(-33, -28)
+emitting = false
+amount = 30
+lifetime = 0.5
+explosiveness = 0.1
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_fcnsu")
+
+[node name="ChispasParticles2" type="CPUParticles2D" parent="ChispasPoint"]
+position = Vector2(31, -28)
+rotation = 3.1415927
+emitting = false
+amount = 30
+lifetime = 0.5
+explosiveness = 0.1
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_fcnsu")
+
+[node name="EscapePoint" type="Node2D" parent="."]
+position = Vector2(-24, 96)
+
+[node name="HumoParticles" type="CPUParticles2D" parent="EscapePoint"]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_fcnsu")
+lifetime = 0.5
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_i7new")
+color_ramp = SubResource("Gradient_f0ul6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_onrkg")
@@ -121,6 +192,7 @@ shape = SubResource("CapsuleShape2D_onrkg")
 [node name="PlayerCar" type="Sprite2D" parent="."]
 scale = Vector2(0.160156, 0.131319)
 texture = ExtResource("2_fcnsu")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
